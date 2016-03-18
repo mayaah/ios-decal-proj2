@@ -137,6 +137,17 @@ class GameViewController: UIViewController {
         self.incorrect = [Character]()
         wordLabel.text = originalWord
         incorrectGuessesLabel.text = "Incorrect Guesses:"
+        for view in self.view.subviews as [UIView] {
+            if let keyboard = view as? UIStackView {
+                for row in keyboard.subviews as [UIView] {
+                    for col in row.subviews as [UIView] {
+                        if let btn = col as? UIButton {
+                            btn.setTitleColor(UIColor.blackColor(), forState: .Normal)
+                        }
+                    }
+                }
+            }
+        }
     }
 
 
